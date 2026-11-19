@@ -1,0 +1,357 @@
+ 
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ 
+    <title>StyleNest - Dark Mode</title> 
+ 
+    <style> 
+ 
+        /* Common CSS */ 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        } 
+ 
+        body { 
+            font-family: Arial, sans-serif; 
+            transition: 0.3s; 
+        } 
+ 
+        /* Light Theme */ 
+        body.light { 
+            background: #f8f5f2; 
+            color: #333; 
+        } 
+ 
+        body.light header, 
+        body.light footer { 
+            background: #222; 
+            color: white; 
+        } 
+ 
+        body.light nav { 
+            background: #333; 
+        } 
+ 
+        body.light .container { 
+            background: white; 
+            box-shadow: 0 2px 8px #ccc; 
+        } 
+ 
+        body.light h2 { 
+            color: #333; 
+        } 
+ 
+        body.light input { 
+            background: white; 
+            color: #333; 
+            border: 1px solid #aaa; 
+        } 
+ 
+        /* Dark Theme */ 
+        body.dark { 
+            background: #121212; 
+            color: white; 
+        } 
+ 
+        body.dark header, 
+        body.dark footer { 
+            background: #000; 
+            color: white; 
+        } 
+ 
+        body.dark nav { 
+            background: #222; 
+        } 
+ 
+        body.dark .container { 
+            background: #252525; 
+            box-shadow: 0 2px 8px #000; 
+        } 
+ 
+        body.dark h2 { 
+            color: #f4b183; 
+        } 
+ 
+        body.dark input { 
+            background: #333; 
+            color: white; 
+            border: 1px solid #777; 
+        } 
+ 
+        /* Header */ 
+        header { 
+            text-align: center; 
+            padding: 20px; 
+        } 
+ 
+        header h1 { 
+            color: #f4b183; 
+        } 
+ 
+        /* Navigation */ 
+        nav ul { 
+            display: flex; 
+            justify-content: center; 
+            list-style: none; 
+        } 
+ 
+        nav a { 
+            display: block; 
+            color: white; 
+            padding: 15px 25px; 
+            text-decoration: none; 
+        } 
+ 
+        nav a:hover { 
+            background: #f4b183; 
+            color: black; 
+        } 
+ 
+        /* Theme Buttons */ 
+        .theme-buttons { 
+            text-align: center; 
+            margin-top: 20px; 
+        } 
+ 
+        button { 
+            background: #333; 
+            color: white; 
+            padding: 12px 20px; 
+            border: none; 
+            margin: 5px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+        } 
+ 
+        button:hover { 
+            background: #f4b183; 
+            color: black; 
+        } 
+ 
+        /* Registration Form */ 
+        .container { 
+            max-width: 500px; 
+            margin: 30px auto; 
+            padding: 25px; 
+            border-radius: 10px; 
+        } 
+ 
+        h2 { 
+            text-align: center; 
+            margin-bottom: 20px; 
+        } 
+ 
+        label { 
+            display: block; 
+            margin-top: 15px; 
+            font-weight: bold; 
+        } 
+ 
+        input { 
+            width: 100%; 
+            padding: 10px; 
+            margin-top: 5px; 
+            border-radius: 5px; 
+        } 
+ 
+        #result { 
+            margin-top: 20px; 
+            padding: 10px; 
+            white-space: pre-line; 
+            font-weight: bold; 
+        } 
+ 
+        footer { 
+            text-align: center; 
+            padding: 15px; 
+            margin-top: 30px; 
+        } 
+ 
+        /* Responsive Design */ 
+        @media(max-width: 600px) { 
+ 
+            nav ul { 
+                flex-direction: column; 
+                text-align: center; 
+            } 
+ 
+            .container { 
+                margin: 20px; 
+                padding: 15px; 
+            } 
+        } 
+ 
+    </style> 
+</head> 
+ 
+<body> 
+ 
+    <!-- Header --> 
+    <header> 
+        <h1>StyleNest</h1> 
+        <p>Your Style, Your Choice</p> 
+    </header> 
+ 
+    <!-- Navigation --> 
+    <nav> 
+        <ul> 
+            <li><a href="#">Home</a></li> 
+            <li><a href="#">Men</a></li> 
+            <li><a href="#">Women</a></li> 
+            <li><a href="#">Offers</a></li> 
+            <li><a href="#">Contact</a></li> 
+        </ul> 
+    </nav> 
+ 
+    <!-- Light and Dark Mode Buttons --> 
+    <div class="theme-buttons"> 
+ 
+        <button onclick="setTheme('light')"> 
+            Light Mode 
+        </button> 
+ 
+        <button onclick="setTheme('dark')"> 
+            Dark Mode 
+        </button> 
+ 
+    </div> 
+ 
+    <!-- Customer Registration Form --> 
+    <div class="container"> 
+ 
+        <h2>Customer Registration Form</h2> 
+ 
+        <label for="name">Customer Name:</label> 
+        <input type="text" id="name" 
+        placeholder="Enter your name"> 
+ 
+        <label for="mobile">Mobile Number:</label> 
+        <input type="text" id="mobile" 
+        placeholder="Enter 10-digit mobile number" 
+        inputmode="numeric" maxlength="10"> 
+ 
+        <label for="quantity">Product Quantity:</label> 
+        <input type="text" id="quantity" 
+        placeholder="Enter quantity" 
+        inputmode="numeric"> 
+ 
+        <button type="button" onclick="processForm()"> 
+            Submit 
+        </button> 
+ 
+        <p id="result"></p> 
+ 
+    </div> 
+ 
+    <!-- Footer --> 
+    <footer> 
+        <p>© 2026 StyleNest | Fashion for Everyone</p> 
+    </footer> 
+ 
+    <!-- JavaScript --> 
+    <script> 
+ 
+        // Apply selected theme 
+        function setTheme(theme) { 
+ 
+            document.body.className = theme; 
+ 
+            // Save selected theme 
+            localStorage.setItem("theme", theme); 
+        } 
+ 
+        // Detect system preference 
+        function loadTheme() { 
+ 
+            let savedTheme = localStorage.getItem("theme"); 
+ 
+            if (savedTheme) { 
+ 
+                setTheme(savedTheme); 
+ 
+            } 
+            else { 
+ 
+                let systemDark = window.matchMedia( 
+                    "(prefers-color-scheme: dark)" 
+                ).matches; 
+ 
+                if (systemDark) { 
+                    document.body.className = "dark"; 
+                } 
+                else { 
+                    document.body.className = "light"; 
+                } 
+            } 
+        } 
+ 
+        // Customer Form Validation 
+        function processForm() { 
+ 
+            let name = document.getElementById("name").value.trim(); 
+            let mobile = document.getElementById("mobile").value.trim(); 
+            let quantity = document.getElementById("quantity").value.trim(); 
+ 
+            let result = document.getElementById("result"); 
+ 
+            if (name === "" || mobile === "" || quantity === "") { 
+ 
+                result.style.color = "red"; 
+                result.textContent = "Please fill all the fields."; 
+ 
+            } 
+ 
+            else if (!/^[0-9]+$/.test(mobile)) { 
+ 
+                result.style.color = "red"; 
+                result.textContent = "Mobile number must contain only numbers."; 
+ 
+            } 
+ 
+            else if (mobile.length !== 10) { 
+ 
+                result.style.color = "red"; 
+                result.textContent = "Mobile number must contain 10 digits."; 
+ 
+            } 
+ 
+            else if (!/^[0-9]+$/.test(quantity)) { 
+ 
+                result.style.color = "red"; 
+                result.textContent = "Quantity must contain only numbers."; 
+ 
+            } 
+ 
+            else if (Number(quantity) <= 0) { 
+ 
+                result.style.color = "red"; 
+                result.textContent = "Quantity must be greater than zero."; 
+ 
+            } 
+ 
+            else { 
+ 
+                result.style.color = "green"; 
+ 
+                result.textContent = 
+                    "Registration Successful!\n" + 
+                    "Customer Name: " + name + "\n" + 
+                    "Mobile Number: " + mobile + "\n" + 
+                    "Product Quantity: " + quantity; 
+ 
+            } 
+        } 
+ 
+        // Load theme when page opens 
+        loadTheme(); 
+</body> 
+    </script> 
+ 
+</body> 
+</html> 
